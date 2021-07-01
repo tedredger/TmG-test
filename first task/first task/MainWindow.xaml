@@ -1,0 +1,46 @@
+﻿<Window x:Class="first_task.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:first_task"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button x:Name="CalculateBut" Content="Подсчитать" HorizontalAlignment="Left" Margin="529,23,0,0" VerticalAlignment="Top" Height="18" Width="103" Click="CalculateBut_Click"/>
+        <Label Content="Идентификаторы строк:" HorizontalAlignment="Left" Margin="25,19,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="index_string" HorizontalAlignment="Left" Margin="172,23,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" />
+        <DataGrid x:Name="grdata" ItemsSource="{DynamicResource ResourceKey=texts}" AutoGenerateColumns="False" Margin="10,50,10,10" IsReadOnly="True" RowHeight="NaN" CanUserResizeColumns="False" CanUserResizeRows="False" >
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Текст" Binding="{Binding Path=xtext}" Width="*">
+                   
+                        <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                            <Setter Property="TextBlock.TextAlignment" Value="Left"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Количество cлов"  Binding="{Binding Path=idwords}" Width="110" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Количество гласных" Binding="{Binding Path=idglas}" Width="125">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap"/>
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            <Setter Property="TextBlock.VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
